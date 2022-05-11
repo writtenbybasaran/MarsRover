@@ -4,22 +4,22 @@ namespace MarsRover.Model.Objects
 {
     public class Plateau : IMap
     {
-        private Size size { get; set; }
+        private Size Size { get; set; }
 
         public void SetSize(Size aSize)
         {
-            size = aSize;
+            Size = aSize;
         }
 
         public Size GetSize()
         {
-            return size;
+            return Size;
         }
 
         public bool IsValid(Point point)
         {
-            var isValidX = point.X >= 0 && point.X <= size.Width;
-            var isValidY = point.Y >= 0 && point.Y <= size.Height;
+            var isValidX = point.X >= 0 && point.X <= Size.Width;
+            var isValidY = point.Y >= 0 && point.Y <= Size.Height;
             return isValidX && isValidY;
         }
         
