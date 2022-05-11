@@ -8,9 +8,9 @@ namespace MarsRover.Model.Enums
 {
     public enum Direction
     {
-        N = 0,
-        E = 90,
-        S = 180,
-        W = 270
+        E = 0,
+        N = 90,
+        W = 180,
+        S = 270
     }
 }

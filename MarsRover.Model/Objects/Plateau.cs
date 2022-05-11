@@ -22,10 +22,10 @@ namespace MarsRover.Model.Objects
             return size;
         }
 
-        public bool IsValid(Point aPoint)
+        public bool IsValid(Point point)
         {
-            var isValidX = aPoint.X >= 0 && aPoint.X <= size.Width;
-            var isValidY = aPoint.Y >= 0 && aPoint.Y <= size.Height;
+            var isValidX = point.X >= 0 && point.X <= size.Width;
+            var isValidY = point.Y >= 0 && point.Y <= size.Height;
             return isValidX && isValidY;
         }
         

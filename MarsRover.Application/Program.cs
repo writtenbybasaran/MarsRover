@@ -14,9 +14,9 @@ namespace MarsRover.Application
             var host = CreateHostBuilder(args).Build();
             var services=host.Services;
             var _commandHandler = services.GetService<ICommandHandler>();
-            
             var input = GetInput();
             _commandHandler.Build(input);
+            Console.WriteLine("Command Execution starting...");
             _commandHandler.Execute();
         }
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -28,7 +28,7 @@ namespace MarsRover.Application
 
         static string GetInput()
         {
-            Console.WriteLine("Parameters will be taken until empty line");
+            Console.WriteLine("Plateau and Rover Parameters will be taken until empty line");
 
             var inputString = string.Empty;
             while (true)

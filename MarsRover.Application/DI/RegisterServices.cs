@@ -16,7 +16,6 @@ namespace MarsRover.Application.DI
             services.AddScoped<ICommandHandler, CommandHandler>();
             services.AddSingleton<IPlateauBuilder, PlateauBuilder>();
             services.AddScoped<IRoverBuilder, RoverBuilder>();
-            services.AddSingleton<IRoverEngine, RoverEngine>();
         }
     }
 }

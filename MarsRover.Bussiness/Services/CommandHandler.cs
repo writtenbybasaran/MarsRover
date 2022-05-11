@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using MarsRover.Bussiness.Interfaces;
+using MarsRover.Common.Exceptions;
 using MarsRover.Common.Helper;
 using MarsRover.Model.CommonModels;
 using MarsRover.Model.Enums;
@@ -17,18 +18,14 @@ namespace MarsRover.Bussiness.Services
     {
         private readonly IPlateauBuilder _plateauBuilder;
         private readonly IRoverBuilder _roverBuilder;
-        private readonly IRoverEngine _roverEngine;
         public IList<Rover> _rovers;
-      
         public Plateau _plateau;
 
-        public CommandHandler(IRoverEngine roverEngine, IRoverBuilder roverBuilder, IPlateauBuilder plateauBuilder)
+        public CommandHandler(IRoverBuilder roverBuilder, IPlateauBuilder plateauBuilder)
         {
-            _roverEngine = roverEngine;
             _roverBuilder = roverBuilder;
             _plateauBuilder = plateauBuilder;
             _rovers = new List<Rover>();
-
         }
 
         public void Build(string command)
@@ -49,8 +46,18 @@ namespace MarsRover.Bussiness.Services
         {
             foreach (var rover in _rovers)
             {
-                rover.Actions.First().Invoke();
+                ActionRun(rover);
             }
+        }
+
+        private void ActionRun(Rover rover)
+        {
+            foreach (var roverAction in rover.Actions)
+            {
+                roverAction.Invoke();
+                if (!_plateau.IsValid(rover.Position)) throw new OutOfMapException("Disconnected from Rover.Rover out of map.");
+            }
+            Console.WriteLine(rover.GetInstantPosition());
         }
     }
 }

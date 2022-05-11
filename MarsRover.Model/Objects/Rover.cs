@@ -14,19 +14,12 @@ namespace MarsRover.Model.Objects
         public Point Position { get; set; }
         public Direction Direction { get; set; }
         public List<Action> Actions { get; private set; }
-        private readonly IDictionary<Movement, Action> RoverAbility;
 
         public Rover(Point startPosition, Direction startDirection)
         {
             Position = startPosition;
             Direction = startDirection;
             Actions = new List<Action>();
-            RoverAbility = new Dictionary<Movement, Action>()
-            {
-                {Movement.M, () => MoveRover()},
-                {Movement.L, () => TurnLeft()},
-                {Movement.R, () => TurnRight()}
-            };
         }
 
         public void SetRoverActions(List<Movement> movements)
@@ -48,6 +41,16 @@ namespace MarsRover.Model.Objects
                         throw new ArgumentOutOfRangeException();
                 }
             }
+        }
+
+        public string GetInstantPosition()
+        {
+            var instantPositionX = Position.X;
+            var instantPositionY = Position.Y;
+            var instantDirection = Direction;
+            var result = new StringBuilder();
+            result.AppendFormat("{0} {1} {2}", instantPositionX, instantPositionY, instantDirection);
+            return result.ToString();
         }
 
         private void TurnLeft()
