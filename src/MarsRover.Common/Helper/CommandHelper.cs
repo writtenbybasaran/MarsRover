@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MarsRover.Common.Exceptions;
 
 namespace MarsRover.Common.Helper
 {
@@ -35,6 +33,8 @@ namespace MarsRover.Common.Helper
                 .Select(line => line.Trim())
                 .Where(line => !string.IsNullOrEmpty(line))
                 .ToArray();
+            if (lines.Length == 0) throw new CommandException("Command is not valid");
+
             return lines;
         }
     }

@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using MarsRover.Bussiness.Interfaces;
 using MarsRover.Common.Exceptions;
 using MarsRover.Model.CommonModels;
-using MarsRover.Model.Enums;
 using MarsRover.Model.Objects;
 
 namespace MarsRover.Bussiness.Services

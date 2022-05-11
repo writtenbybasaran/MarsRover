@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using MarsRover.Model.CommonModels;
+﻿using MarsRover.Model.CommonModels;
 
 namespace MarsRover.Model.Objects
 {

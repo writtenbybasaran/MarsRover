@@ -11,10 +11,10 @@ namespace MarsRover.Model.CommonModels
         public int Width;
         public int Height;
 
-        public Size(int aWidth, int aHeight)
+        public Size(int width, int height)
         {
-            Width = aWidth;
-            Height = aHeight;
+            Width = width;
+            Height = height;
         }
     }
 }
