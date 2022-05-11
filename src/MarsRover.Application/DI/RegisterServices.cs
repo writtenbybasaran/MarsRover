@@ -14,7 +14,7 @@ namespace MarsRover.Application.DI
         public static void UseRegisterServices(this IServiceCollection services)
         {
             services.AddScoped<ICommandHandler, CommandHandler>();
-            services.AddSingleton<IPlateauBuilder, PlateauBuilder>();
+            services.AddScoped<IPlateauBuilder, PlateauBuilder>();
             services.AddScoped<IRoverBuilder, RoverBuilder>();
         }
     }
